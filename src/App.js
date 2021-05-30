@@ -57,6 +57,12 @@ function App() {
     setDoneList(doneList);
   }
 
+  const doLater = (doing) => {
+    setTodos([...todos, doing]);
+    doingList.splice(doingList.indexOf(doing), 1);
+    setDoingList(doingList);
+  }
+
   return (
     <div className="app">
       <div>
@@ -85,6 +91,7 @@ function App() {
               <li>
                 {doing}
                 <button onClick={() => addToDone(doing)}>Done</button>
+                <button onClick={() => doLater(doing)}>Do later</button>
               </li>
             ))
           }
